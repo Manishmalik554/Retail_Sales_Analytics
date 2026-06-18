@@ -25,7 +25,6 @@ FROM staging.products
 GROUP BY product_id
 HAVING COUNT(*) > 1;
 
-
 -- Missing Value Analysis
 
 Select count(*) as total_products, 
@@ -134,7 +133,6 @@ Ensure source data quality before ETL processing
 and fact/dimension table creation.
 
 Data Quality Findings:
-
 - 166 orders (0.17%) showed carrier pickup timestamps earlier than purchase timestamps.
 - 23 orders (0.02%) showed delivery timestamps earlier than carrier pickup timestamps.
 - 61 orders (0.06%) showed delivery timestamps earlier than order approval timestamps.
