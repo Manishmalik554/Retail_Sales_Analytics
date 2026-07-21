@@ -58,6 +58,19 @@ FROM staging.orders
 WHERE order_purchase_timestamp IS NOT NULL;
 
 
+CREATE TABLE warehouse.dim_payment AS
+SELECT DISTINCT
+    payment_type
+FROM staging.payments;
+
+SELECT *
+FROM warehouse.dim_payment;
+
+
+ALTER TABLE warehouse.dim_payment
+ADD CONSTRAINT pk_dim_payment
+PRIMARY KEY(payment_type);
+
 ALTER TABLE warehouse.dim_customer
 ADD CONSTRAINT pk_dim_customer
 PRIMARY KEY (customer_id);
